@@ -1,5 +1,6 @@
 module.exports = {
   lintOnSave: true,
+
   devServer: {
     open: true,
     watchOptions: {
@@ -12,8 +13,10 @@ module.exports = {
   css: {
     loaderOptions: {
       scss: {
-        prependData: '@import "~@/assets/scss/vars";',
+        additionalData: '@import "~@/assets/scss/vars";',
       },
     },
   },
-};
+
+  transpileDependencies: ['vuetify'],
+}

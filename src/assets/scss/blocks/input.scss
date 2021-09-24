@@ -1,0 +1,18 @@
+@import '../vars';
+
+.input div, label {
+    caret-color: $--primary !important;
+    color: $--primary !important;
+}
+
+// .primary {
+//     caret-color: $--primary !important;
+//     color: $--primary !important;
+//     background-color: $--primary !important;
+//     border-color: $--primary !important;
+// }
+
+.primary--text {
+    caret-color: $--primary !important;
+    color: $--primary !important;
+}

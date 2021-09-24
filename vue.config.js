@@ -1,5 +1,6 @@
 module.exports = {
   lintOnSave: true,
+
   devServer: {
     open: true,
     watchOptions: {
@@ -16,4 +17,6 @@ module.exports = {
       },
     },
   },
-};
+
+  transpileDependencies: ['vuetify'],
+}

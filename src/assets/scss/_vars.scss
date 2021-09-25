@@ -2,12 +2,21 @@
 
 // common colors
 $--blue: #1390e5;
+$--prairie-sand: #9d331f;
+$--prairie-sand-lighter: #c44127a9;
+$--white: #ffffff;
+$--apricot: #f0a277;
+$--red: rgba(255, 0, 0, 0.651);
+$--grey: rgba(255, 255, 255, 0.733);
 
 // theme settings
-$--primary: $--blue;
+$--primary: $--prairie-sand;
+$--primary-lighter: $--prairie-sand-lighter;
+$--secondary: $--apricot;
+$--danger: $--red;
 
 // fonts
-$--font-family: Avenir, Helvetica, Arial, sans-serif;
+$--font-family: 'Montserrat', Helvetica, Arial, sans-serif;
 $--font-weight-bold: 700;
 $--font-weight-medium: 500;
 $--font-weight-normal: 400;
@@ -16,3 +25,9 @@ $--font-size-small: 12px;
 $--font-size-base: 16px;
 $--font-size-title: 32px;
 $--font-size-subtitle: 24px;
+
+//
+$--color: $--white;
+$--btn-color: $--white;
+$--input-color: $--white;
+$--icon-hover-color: $--grey;

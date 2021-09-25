@@ -25,7 +25,7 @@
       <div>
         <span class="mr-3">Еще нет аккаунта?</span>
         <router-link :to="{ name: 'Registration' }">
-          Зарегистрироватся
+          Зарегистрироваться
         </router-link>
       </div>
 

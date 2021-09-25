@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
 @import './vars';
-// @import "./blocks/btn.scss";
+@import "./blocks/btn.scss";
 @import './blocks/input.scss';
 @import './blocks/card.scss';
 
@@ -13,8 +14,13 @@ body {
   text-size-adjust: 100%;
 }
 
-a {
-  color: $--primary;
+.v-application a {
+  color: $--primary !important;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $--prairie-sand-lighter !important;
 }
 
 #app {
@@ -22,3 +28,8 @@ a {
   height: 100%;
   background-size: cover;
 }
+
+.v-application {
+  font-family: $--font-family !important;
+}
+

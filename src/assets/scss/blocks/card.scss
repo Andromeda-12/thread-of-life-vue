@@ -1,4 +1,17 @@
-.card{
-    color:$--color !important;
-    text-align: center;
+.card {
+  background-color: $--secondary !important;
+  color: $--color !important;
+  text-align: center;
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__input {
+      margin-bottom: 10px;
+  }
+
+  &__btn {
+      margin-top: 25px;
+  }
 }

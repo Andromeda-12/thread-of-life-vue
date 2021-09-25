@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import Authorization from '../views/Authorization.vue'
-import AuthLayout from '../layouts/AuthLayout.vue'
+import Home from '@/views/Home.vue'
 
 Vue.use(VueRouter)
 
@@ -12,16 +10,15 @@ const routes = [
     name: 'Home',
     component: Home,
   },
-
   {
     path: '/auth/',
     name: 'AuthLayout',
-    component: AuthLayout,
+    component: () => import('@/layouts/AuthLayout.vue'),
     children: [
       {
         path: 'signin',
         name: 'Authorization',
-        component: Authorization,
+        component: () => import('@/views/Authorization.vue'),
       },
     ],
   },

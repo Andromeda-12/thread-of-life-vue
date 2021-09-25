@@ -1,8 +1,9 @@
 <template>
   <v-row justify="center" class="mt-10">
     <v-col cols="4">
-      <button-component class="mb-10" @click="test"> ABOBUS </button-component>
-      
+      <router-link :to="{ name: 'Authorization' }">
+        <button-component @click="test"> ABOBUS </button-component>
+      </router-link>
     </v-col>
   </v-row>
 </template>

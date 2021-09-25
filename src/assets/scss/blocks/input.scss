@@ -1,18 +1,61 @@
 @import '../vars';
 
-.input div, label {
-    caret-color: $--primary !important;
-    color: $--primary !important;
+
+// толщина и цвет рамки без фокуса
+.v-text-field--outlined fieldset {
+    border-radius: 15px;
+    border: 2px $--primary solid;
+    transition: none; // чтобы не было мигания при нажатии по инпуту
 }
 
-// .primary {
-//     caret-color: $--primary !important;
-//     color: $--primary !important;
-//     background-color: $--primary !important;
-//     border-color: $--primary !important;
-// }
+// цвет placeholder-а
+.theme--light {
+    color: $--color !important;
+}
 
-.primary--text {
-    caret-color: $--primary !important;
+// цвет лэйбла при фокусе
+.v-application .primary--text label {
+    color: $--color !important;
+}
+
+.v-application .primary--text div {
+    // цвет рамки при фокусе
     color: $--primary !important;
+    // цвет курсора ввода
+    caret-color: $--color !important;
+}
+
+// цвет иконки
+.v-application .primary--text ::before, ::after {
+    color: $--color !important;
+}
+
+// чтобы не мегала иконка при фокусе инпута
+.v-icon.v-icon {
+    transition: none;
+}
+
+.v-icon.v-icon:hover {
+    color: $--icon-hover-color !important;
+}
+
+// чтобы не было мигания при нажатии по инпуту
+.v-input__slot {
+    transition: none !important;
+}
+
+// чтобы введенный текст был белый
+input {
+    color: $--color !important;
+}
+
+// цвет инпута при ошибке
+.v-application .error--text div {
+    color: $--danger !important;
+    caret-color: $--danger !important;
+}
+
+.v-application .error--text label {
+    color: $--danger !important;
+    caret-color: $--danger !important;
 }

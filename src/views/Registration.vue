@@ -1,12 +1,21 @@
 <template>
   <div>
-    <form-card title="Вход">
+    <form-card title="Регистрация">
       <v-form
         ref="form"
         v-model="isValidForm"
         :disabled="isFormDisabled"
         @submit.prevent="onSubmit"
       >
+        <div class="card__input">
+          <input-component
+            v-model="credential.login"
+            label="Логин"
+            name="login"
+            :rules="$options.rules.emptyFieldRule"
+          ></input-component>
+        </div>
+
         <div class="card__input">
           <input-component
             v-model="credential.email"
@@ -29,10 +38,8 @@
         </div>
 
         <div>
-          <span class="mr-3">Еще нет аккаунта?</span>
-          <router-link :to="{ name: 'Registration' }">
-            Зарегистрироваться
-          </router-link>
+          <span class="mr-3">Уже есть аккаунт?</span>
+          <router-link :to="{ name: 'Authorization' }"> Войти </router-link>
         </div>
 
         <div class="card__btn">
@@ -56,7 +63,7 @@ import FormCard from '../components/FormCard.vue'
 import InputComponent from '../components/InputComponent.vue'
 import ButtonComponent from '../components/ButtonComponent.vue'
 import AlertComponent from '../components/AlertComponent.vue'
-import { emailRules, passwordRules } from '@/constants'
+import { emptyFieldRule, emailRules, passwordRules } from '@/constants'
 
 export default {
   name: 'Authorization',
@@ -67,6 +74,7 @@ export default {
     AlertComponent,
   },
   rules: {
+    emptyFieldRule,
     emailRules,
     passwordRules,
   },
@@ -78,6 +86,7 @@ export default {
     isShowAlert: false,
     loading: false,
     credential: {
+      login: '',
       email: '',
       password: '',
     },

@@ -6,7 +6,7 @@ $--prairie-sand: #9d331f;
 $--prairie-sand-lighter: #c44127a9;
 $--white: #ffffff;
 $--apricot: #f0a277;
-$--red: rgba(255, 0, 0, 0.651);
+$--red: #fa392a;
 $--grey: rgba(255, 255, 255, 0.733);
 
 // theme settings
@@ -31,3 +31,5 @@ $--color: $--white;
 $--btn-color: $--white;
 $--input-color: $--white;
 $--icon-hover-color: $--grey;
+$--disabled-color:  darken($--primary, 15%);
+$--disabled-text-color: darken($--color, 15%);

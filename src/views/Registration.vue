@@ -44,11 +44,12 @@
 
         <div class="card__btn">
           <button-component :loading="loading" type="submit"
-            >Войти</button-component
+            >Зарегистрироваться</button-component
           >
         </div>
       </v-form>
     </form-card>
+
     <alert-component
       class="auth-alert"
       :is-show="isShowAlert"
@@ -59,10 +60,10 @@
 </template>
 
 <script>
-import FormCard from '../components/FormCard.vue'
-import InputComponent from '../components/InputComponent.vue'
-import ButtonComponent from '../components/ButtonComponent.vue'
-import AlertComponent from '../components/AlertComponent.vue'
+import FormCard from '@/components/FormCard.vue'
+import InputComponent from '@/components/InputComponent.vue'
+import ButtonComponent from '@/components/ButtonComponent.vue'
+import AlertComponent from '@/components/AlertComponent.vue'
 import { emptyFieldRule, emailRules, passwordRules } from '@/constants'
 
 export default {

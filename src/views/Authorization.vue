@@ -52,10 +52,10 @@
 </template>
 
 <script>
-import FormCard from '../components/FormCard.vue'
-import InputComponent from '../components/InputComponent.vue'
-import ButtonComponent from '../components/ButtonComponent.vue'
-import AlertComponent from '../components/AlertComponent.vue'
+import FormCard from '@/components/FormCard.vue'
+import InputComponent from '@/components/InputComponent.vue'
+import ButtonComponent from '@/components/ButtonComponent.vue'
+import AlertComponent from '@/components/AlertComponent.vue'
 import { emailRules, passwordRules } from '@/constants'
 
 export default {

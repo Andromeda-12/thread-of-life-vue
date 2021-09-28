@@ -1,7 +1,6 @@
 // All global variables starts with double dash `--` prefix;
 
 // common colors
-$--blue: #1390e5;
 $--prairie-sand: #9d331f;
 $--prairie-sand-lighter: #c44127a9;
 $--white: #ffffff;
@@ -33,3 +32,4 @@ $--input-color: $--white;
 $--icon-hover-color: $--grey;
 $--disabled-color:  darken($--primary, 15%);
 $--disabled-text-color: darken($--color, 15%);
+$--hover-color: darken($--color, 12%);

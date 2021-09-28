@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center" align="center">
-    <v-col cols="8">
+    <v-col lg="7" md="8" sm="10" cols="12">
       <event-calendar></event-calendar>
     </v-col>
   </v-row>

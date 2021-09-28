@@ -6,19 +6,24 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '',
+    name: 'Home',
+    component: Home,
+  },
+  {
     path: '/',
     // name: 'DefaultLayout',
     component: () => import('@/layouts/DefaultLayout.vue'),
     children: [
       {
-        path: '',
-        name: 'Home',
-        component: Home,
-      },
-      {
         path: 'dashboard',
         name: 'Dashboard',
         component: () => import('@/views/Dashboard.vue'),
+      },
+      {
+        path: 'feed',
+        name: 'EventsFeed',
+        component: () => import('@/views/EventsFeed.vue'),
       },
     ],
   },

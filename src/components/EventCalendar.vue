@@ -8,6 +8,7 @@
     :weekday-format="weekdayFormat"
     :events="arrayEvents"
     :first-day-of-week="1"
+    @click:date="$emit('addEvent', $event)"
   ></v-date-picker>
 </template>
 

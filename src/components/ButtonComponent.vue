@@ -1,5 +1,13 @@
 <template>
-  <v-btn class="btn" block rounded :loading="loading" @click="$emit('click')">
+  <v-btn
+    class="btn"
+    block
+    rounded
+    :loading="loading"
+    :small="small"
+    :fab="fab"
+    @click="$emit('click')"
+  >
     <slot></slot>
   </v-btn>
 </template>
@@ -12,6 +20,14 @@ export default {
       type: Boolean,
       default: false,
     },
-  }
+    small: {
+      type: Boolean,
+      default: false,
+    },
+    fab: {
+      type: Boolean,
+      default: false,
+    },
+  },
 }
 </script>

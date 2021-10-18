@@ -39,10 +39,11 @@ import ButtonComponent from './ButtonComponent.vue'
 export default {
   components: {
     MemoryComponent,
+    ButtonComponent
   },
   props: {
     date: {
-    ButtonComponent
+    
       type: String,
       default: 'Day Month Year',
     },

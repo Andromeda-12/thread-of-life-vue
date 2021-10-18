@@ -1,0 +1,13 @@
+@import '../vars';
+
+.home {
+  &__title {
+    text-align: center;
+    color: $--secondary;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+  &__subtitle{
+    text-align: center;
+    color: $--secondary;
+  }
+}

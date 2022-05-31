@@ -1,0 +1,27 @@
+@import '../vars';
+
+.sidebar {
+    &__avatar {
+        border: 2px $--primary solid;
+    }
+
+    &__icon-menu {
+      justify-content: flex-end;
+      display: flex;
+    }
+
+    &__icon-menu-collapsed {
+      justify-content: center;
+    }
+}
+
+.theme--light.v-navigation-drawer {
+    background-color: $--secondary !important;
+    .v-list-item__subtitle {
+      color: $--darker-color !important;
+    }
+
+    .v-list-item.v-list-item--link:hover {
+      background-color: rgba($--color, 0.1) !important;
+    }
+  }

@@ -1,0 +1,119 @@
+@import '../vars';
+
+.calendar {
+  height: 50% !important;
+}
+
+.calendar .v-date-picker-table {
+  height: 430px !important;
+}
+
+.calendar .v-date-picker-table table {
+  height: 400px !important;
+}
+
+.calendar .v-date-picker-header {
+    height: 80px;
+}
+
+// кнопки-дни
+.calendar .v-date-picker-table--date .v-btn {
+  font-size: 14px !important;
+  height: 50px !important;
+  width: 50px !important;
+}
+
+// дни недели
+.calendar .v-date-picker-table th {
+  font-size: 16px !important;
+}
+
+// цвет хедера
+.calendar div.v-picker__title.primary {
+  background-color: $--primary !important;
+}
+
+// цвет фона каледнаря
+.calendar .theme--light.v-picker__body {
+  background-color: $--secondary !important;
+}
+
+// цвет дней недели
+.calendar .theme--light.v-date-picker-header
+  .v-date-picker-header__value:not(.v-date-picker-header__value--disabled)
+  button:not(:hover):not(:focus),
+.theme--light.v-date-picker-table th,
+.theme--light.v-date-picker-table .v-date-picker-table--date__week {
+  color: rgb(255, 255, 255) !important;
+}
+
+// цвет активного дня или месяца
+.calendar .v-date-picker-table .v-btn.v-btn--active {
+  background-color: $--primary !important;
+}
+
+// радиусы календаря
+.calendar .v-picker__title {
+  border-radius: 20px 20px 0 0 !important;
+}
+
+// радиусы календаря
+.calendar .v-picker__body.theme--light {
+  border-bottom-left-radius: 20px !important;
+  border-bottom-right-radius: 20px !important;
+}
+
+// чтобы позади календаря не было белого фона
+.calendar .v-picker.theme--light.v-card {
+  background-color: rgba(255, 255, 255, 0) !important;
+}
+
+// цвет месяца при наведении
+.calendar .v-application div.accent--text {
+  color: $--hover-color !important;
+}
+
+// цвет года
+.calendar li.active.primary--text {
+  color: $--primary !important;
+}
+
+// цвета для текущего дня
+.calendar .v-date-picker-table__current {
+  border-color: $--primary !important;
+  border-width: 1px !important;
+  background-color: $--primary ;
+}
+
+// цвет дней не текущего месяца
+.calendar .v-date-picker-table__current div {
+  color: $--color !important;
+}
+
+// цвет дней не текущего месяца
+.calendar .theme--light.v-btn.v-btn--disabled {
+  color: $--disabled-text-color !important;
+}
+
+// отображение событий
+.calendar .v-date-picker-table--date .v-date-picker-table__events {
+  bottom: 0 !important;
+  border: 2px $--color solid !important;
+  border-radius: 50% !important;
+  height: 50px !important;
+  width: 50px !important;
+}
+
+// чтобы не было стандартных точек
+.calendar .v-picker__body.theme--light
+  > div
+  > div.v-date-picker-table.v-date-picker-table--date.theme--light
+  > table
+  > tbody
+  > tr
+  > td
+  > button
+  > div.v-date-picker-table__events
+  > div {
+  display: none !important;
+}

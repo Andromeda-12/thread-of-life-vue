@@ -1,0 +1,12 @@
+@import '../vars';
+
+.alert div[role=alert] {
+    background-color: $--danger !important;
+    position: absolute;
+}
+
+.auth-alert {
+    margin-top: 30px;
+    left: 50%;
+    right: 50%;
+}

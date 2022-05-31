@@ -3,6 +3,10 @@
 @import "./blocks/btn.scss";
 @import './blocks/input.scss';
 @import './blocks/card.scss';
+@import './blocks/alert.scss';
+@import './blocks/calendar.scss';
+@import './blocks/sidebar.scss';
+@import './blocks/home.scss';
 
 body {
   font-family: $--font-family;
@@ -14,12 +18,12 @@ body {
   text-size-adjust: 100%;
 }
 
-.v-application a {
+.v-application a:not(.v-list-item) {
   color: $--primary !important;
   text-decoration: none;
 }
 
-a:hover {
+a:hover:not(.v-list-item) {
   color: $--prairie-sand-lighter !important;
 }
 
@@ -27,9 +31,21 @@ a:hover {
   background-image: url(../background.png);
   height: 100%;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 .v-application {
   font-family: $--font-family !important;
 }
+
+.home-page {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-image: url(../homebackground.png);
+}
+
+
 

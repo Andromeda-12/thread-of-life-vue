@@ -1,12 +1,21 @@
 <template>
   <div>
-    <form-card title="Вход">
+    <form-card title="Регистрация">
       <v-form
         ref="form"
         v-model="isValidForm"
         :disabled="isFormDisabled"
         @submit.prevent="onSubmit"
       >
+        <div class="card__input">
+          <input-component
+            v-model="credential.login"
+            label="Логин"
+            name="login"
+            :rules="$options.rules.emptyFieldRule"
+          ></input-component>
+        </div>
+
         <div class="card__input">
           <input-component
             v-model="credential.email"
@@ -28,22 +37,19 @@
           ></input-component>
         </div>
 
-
         <div>
-          <span class="mr-3">Еще нет аккаунта?</span>
-          <router-link :to="{ name: 'Registration' }">
-            Зарегистрироваться
-          </router-link>
+          <span class="mr-3">Уже есть аккаунт?</span>
+          <router-link :to="{ name: 'Authorization' }"> Войти </router-link>
         </div>
-
 
         <div class="card__btn">
           <button-component :loading="loading" type="submit"
-            >Войти</button-component
+            >Зарегистрироваться</button-component
           >
         </div>
       </v-form>
     </form-card>
+
     <alert-component
       class="auth-alert"
       :is-show="isShowAlert"
@@ -58,9 +64,8 @@ import FormCard from '@/components/FormCard.vue'
 import InputComponent from '@/components/InputComponent.vue'
 import ButtonComponent from '@/components/ButtonComponent.vue'
 import AlertComponent from '@/components/AlertComponent.vue'
-import { emailRules, passwordRules } from '@/constants'
-import { mapActions, mapState } from 'vuex'
-import jwt_decode from "jwt-decode"
+import { emptyFieldRule, emailRules, passwordRules } from '@/constants'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'Authorization',
@@ -71,6 +76,7 @@ export default {
     AlertComponent,
   },
   rules: {
+    emptyFieldRule,
     emailRules,
     passwordRules,
   },
@@ -81,13 +87,13 @@ export default {
     isShowAlert: false,
     loading: false,
     credential: {
+      login: '',
       email: '',
       password: '',
     },
     obtainErrorMessage: '',
   }),
   computed: {
-     ...mapState('authModule', ['token']),
     passwordType() {
       return this.isShowPassword ? 'text' : 'password'
     },
@@ -96,8 +102,7 @@ export default {
     },
   },
   methods: {
-    ...mapActions('authModule', ['obtain']),
-    ...mapActions('userModule', ['getUser']),
+    ...mapActions('authModule', ['register']),
     passwordIconClick() {
       this.isShowPassword = !this.isShowPassword
     },
@@ -109,17 +114,14 @@ export default {
         this.isFormDisabled = true
         this.loading = true
 
-        this.obtain(this.credential)
+        this.register(this.credential)
           .then(() => {
-            const userFromToken = jwt_decode(this.token);
-            this.getUser(userFromToken.id)
-            this.$router.push({ name: 'Dashboard' })
+            this.$router.push({ name: 'Authorization' })
           })
           .catch(({ response }) => {
-            console.log(response);
+            this.isShowAlert = true
             this.isFormDisabled = false
             this.loading = false
-            this.isShowAlert = true
             this.obtainErrorMessage = response.data.message
           })
       } else {

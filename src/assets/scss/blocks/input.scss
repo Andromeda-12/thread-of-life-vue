@@ -3,9 +3,13 @@
 
 // толщина и цвет рамки без фокуса
 .v-text-field--outlined fieldset {
-    border-radius: 15px;
-    border: 2px $--primary solid;
+    border-radius: 15px !important;
+    border: 2px $--primary solid !important;
     transition: none; // чтобы не было мигания при нажатии по инпуту
+}
+
+.v-text-field:hover fieldset {
+    border: 2px $--primary-lighter solid !important;
 }
 
 // цвет placeholder-а
@@ -58,4 +62,14 @@ input {
 .v-application .error--text label {
     color: $--danger !important;
     caret-color: $--danger !important;
+}
+
+
+// цвет рамки и лэймбла при отлючении
+.v-input--is-disabled fieldset {
+    border-color: $--disabled-color;
+}
+
+.v-input--is-disabled label {
+    color: $--disabled-text-color !important;
 }

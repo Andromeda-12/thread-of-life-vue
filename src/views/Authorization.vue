@@ -28,12 +28,14 @@
           ></input-component>
         </div>
 
+
         <div>
           <span class="mr-3">Еще нет аккаунта?</span>
           <router-link :to="{ name: 'Registration' }">
             Зарегистрироваться
           </router-link>
         </div>
+
 
         <div class="card__btn">
           <button-component :loading="loading" type="submit"

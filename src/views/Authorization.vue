@@ -57,6 +57,8 @@ import InputComponent from '@/components/InputComponent.vue'
 import ButtonComponent from '@/components/ButtonComponent.vue'
 import AlertComponent from '@/components/AlertComponent.vue'
 import { emailRules, passwordRules } from '@/constants'
+import { mapActions, mapState } from 'vuex'
+import jwt_decode from "jwt-decode"
 
 export default {
   name: 'Authorization',
@@ -70,7 +72,6 @@ export default {
     emailRules,
     passwordRules,
   },
-
   data: () => ({
     isFormDisabled: false,
     isValidForm: true,
@@ -84,28 +85,41 @@ export default {
     obtainErrorMessage: '',
   }),
   computed: {
+     ...mapState('authModule', ['token']),
     passwordType() {
       return this.isShowPassword ? 'text' : 'password'
     },
-
     passwordIcon() {
       return this.isShowPassword ? 'mdi-eye' : 'mdi-eye-off'
     },
   },
   methods: {
+    ...mapActions('authModule', ['obtain']),
+    ...mapActions('userModule', ['getUser']),
     passwordIconClick() {
       this.isShowPassword = !this.isShowPassword
     },
-
     validate() {
       this.$refs.form.validate()
     },
-
     onSubmit() {
       if (this.isValidForm) {
         this.isFormDisabled = true
         this.loading = true
-        this.isShowAlert = true
+
+        this.obtain(this.credential)
+          .then(() => {
+            const userFromToken = jwt_decode(this.token);
+            this.getUser(userFromToken.id)
+            this.$router.push({ name: 'Dashboard' })
+          })
+          .catch(({ response }) => {
+            console.log(response);
+            this.isFormDisabled = false
+            this.loading = false
+            this.isShowAlert = true
+            this.obtainErrorMessage = response.data.message
+          })
       } else {
         this.validate()
       }

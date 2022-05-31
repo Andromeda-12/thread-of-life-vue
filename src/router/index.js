@@ -25,6 +25,16 @@ const routes = [
         name: 'EventsFeed',
         component: () => import('@/views/EventsFeed.vue'),
       },
+      {
+        path: 'create-memory',
+        name: 'CreateMemory',
+        component: () => import('@/views/CreateMemory.vue'),
+      },
+      {
+        path: 'memory/:id',
+        name: 'Memory',
+        component: () => import('@/views/EditMemory.vue'),
+      },
     ],
   },
   {

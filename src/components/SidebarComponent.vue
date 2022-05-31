@@ -17,18 +17,18 @@
 
     <v-list-item class="px-2">
       <v-list-item-avatar class="sidebar__avatar">
-        <v-img contain src="../assets/default-avatar.png"></v-img>
+        <v-img contain :src="`http://localhost:5000/${user.avatar}`"></v-img>
       </v-list-item-avatar>
 
       <v-list-item-group>
-        <v-list-item-title> {{ user.name }} </v-list-item-title>
+        <v-list-item-title> {{ user.login }} </v-list-item-title>
         <v-list-item-subtitle> {{ user.email }} </v-list-item-subtitle>
       </v-list-item-group>
     </v-list-item>
 
     <v-list-item :class="{ 'px-2': isClose }">
       <v-list-item-action>
-        <button-component small :fab="isClose">
+        <button-component small :fab="isClose"  @click="createMemory">
           <v-icon color="pr-5">mdi-plus</v-icon>
           <span v-if="!isClose">Добавить событие</span>
         </button-component>
@@ -59,6 +59,7 @@
 
 <script>
 import ButtonComponent from '@/components/ButtonComponent.vue'
+import { mapState } from 'vuex'
 
 export default {
   name: 'SidebarComponent',
@@ -73,11 +74,6 @@ export default {
   },
   data() {
     return {
-      user: {
-        avatar: '',
-        name: 'Zheneva',
-        email: 'zheneva@ikit.com',
-      },
       isClose: false,
       items: [
         { title: 'Календарь', icon: 'mdi-calendar-heart', rout: 'Dashboard' },
@@ -91,6 +87,12 @@ export default {
     collapseSidebar() {
       this.isClose = !this.isClose
     },
+    createMemory() {
+      this.$router.push({ name: 'CreateMemory' })
+    },
+  },
+  computed: {
+    ...mapState('userModule', ['user']),
   },
 }
 </script>

@@ -6,7 +6,7 @@
     full-width
     show-adjacent-months
     :weekday-format="weekdayFormat"
-    :events="arrayEvents"
+    :events="events"
     :first-day-of-week="1"
     @click:date="$emit('addEvent', $event)"
   ></v-date-picker>
@@ -17,6 +17,12 @@ import moment from 'moment'
 
 export default {
   name: 'EventCalendar',
+  props: {
+    events: {
+      type: Array,
+      default: () => [],
+    },
+  },
   data() {
     return {
       picker: new Date(Date.now() - new Date().getTimezoneOffset() * 60000)

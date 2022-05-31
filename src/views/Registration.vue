@@ -65,6 +65,7 @@ import InputComponent from '@/components/InputComponent.vue'
 import ButtonComponent from '@/components/ButtonComponent.vue'
 import AlertComponent from '@/components/AlertComponent.vue'
 import { emptyFieldRule, emailRules, passwordRules } from '@/constants'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'Authorization',
@@ -79,7 +80,6 @@ export default {
     emailRules,
     passwordRules,
   },
-
   data: () => ({
     isFormDisabled: false,
     isValidForm: true,
@@ -97,25 +97,33 @@ export default {
     passwordType() {
       return this.isShowPassword ? 'text' : 'password'
     },
-
     passwordIcon() {
       return this.isShowPassword ? 'mdi-eye' : 'mdi-eye-off'
     },
   },
   methods: {
+    ...mapActions('authModule', ['register']),
     passwordIconClick() {
       this.isShowPassword = !this.isShowPassword
     },
-
     validate() {
       this.$refs.form.validate()
     },
-
     onSubmit() {
       if (this.isValidForm) {
         this.isFormDisabled = true
         this.loading = true
-        this.isShowAlert = true
+
+        this.register(this.credential)
+          .then(() => {
+            this.$router.push({ name: 'Authorization' })
+          })
+          .catch(({ response }) => {
+            this.isShowAlert = true
+            this.isFormDisabled = false
+            this.loading = false
+            this.obtainErrorMessage = response.data.message
+          })
       } else {
         this.validate()
       }

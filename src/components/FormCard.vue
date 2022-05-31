@@ -1,5 +1,5 @@
 <template>
-  <v-sheet class="card" rounded="xl" elevation="10">
+  <v-sheet class="card" rounded="xl" elevation="10" >
     <v-row class="pt-14">
       <v-col>
         <h1 class="card__title">{{ title }}</h1>

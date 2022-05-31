@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="day">
-      <h1 class="day__title">{{ date }}</h1>
+      <h1 class="day__title">{{ formatDate }}</h1>
       <hr class="day__divider" />
     </div>
 
@@ -15,11 +15,14 @@
         sm="9"
         cols="12"
       >
-        <memory-component></memory-component>
+        <memory-component
+          :memory="memory"
+          @click="redirectToMemory(memory.id)"
+        ></memory-component>
       </v-col>
     </v-row>
 
-    <v-row justify="center" v-else>
+    <v-row v-else justify="center">
       <v-col cols="auto">
         <div>Воспоминаний на этот день нет</div>
         <div>Вы можете добавить воспоминание на этот день</div>
@@ -35,21 +38,32 @@
 <script>
 import MemoryComponent from '@/components/MemoryComponent.vue'
 import ButtonComponent from './ButtonComponent.vue'
+import moment from 'moment'
 
 export default {
   components: {
     MemoryComponent,
-    ButtonComponent
+    ButtonComponent,
   },
   props: {
     date: {
-    
       type: String,
       default: 'Day Month Year',
     },
     memories: {
       type: Array,
       default: () => [],
+    },
+  },
+  computed: {
+    formatDate() {
+      return moment(this.date).locale('ru').format('LL').toUpperCase()
+    },
+  },
+  methods: {
+    redirectToMemory(id) {
+      console.log(id)
+      this.$router.push({ name: 'Memory', params: { id } })
     },
   },
 }
